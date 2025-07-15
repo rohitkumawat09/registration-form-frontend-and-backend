@@ -1,0 +1,259 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+.main img{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.main{
+    width: 80px;
+    height: 80px;
+   
+
+}
+/* 
+  .the{  
+
+    margin-top: 0px;
+    position: fixed;
+    background-color:rgb(240, 236, 236);
+
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;} */
+.the {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgb(240, 236, 236);
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+   .bardiv ol{
+
+    list-style: none;
+
+   }
+.bardiv ol  a{
+
+    text-decoration: none;
+    color:black;
+    font-size: 18px;
+    padding: 0 15px;
+}
+
+
+.bardiv button{
+padding: 20px 20px ;
+border-radius:23px;
+border: none;
+background-color:orange;
+}  
+  
+
+.login a{
+
+background-color: blue;  
+  color: rgb(0, 0, 0) ;
+  
+   
+}
+.login a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+
+/* form css */
+
+
+
+.form-container {
+
+  margin: 80px auto;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 6px;
+  margin-left: 10px;
+}
+
+label {
+  /* margin-right: 15px; */
+  font-size: 15px;
+}
+
+button[type="submit"] {
+  background-color: #4285f4;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3367d6;
+}
+
+a {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .form-container {
+    padding: 15px;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font-size: 14px;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+}
+
+
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;     /* Gray when disabled */
+  color: #666;
+  cursor: not-allowed;
+  border: none;
+}
+.toggle-container {
+  position: relative;
+  width: 50px;
+  height: 28px;
+  display: inline-block;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-label::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+/* When checked */
+.toggle-input:checked + .toggle-label {
+  background-color: #2196F3;
+}
+
+.toggle-input:checked + .toggle-label::before {
+  transform: translateX(22px);
+}
+.section-box {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  background-color: #fafafa;
+}

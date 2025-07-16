@@ -4,10 +4,8 @@ import "dotenv/config";
 import cors from "cors";
 
 const app = express();
-const port = 4000;
 
-
-
+const port = process.env.PORT;
 
 mongoose.connect(process.env.MONGO_CONNECTION);
 const DetailSchema = new mongoose.Schema({
@@ -16,7 +14,7 @@ const DetailSchema = new mongoose.Schema({
   phone: { type: Number, required: true },
   dob: { type: String },
   gender: { type: String },
-       friendName: { type: String, },
+  friendName: { type: String },
 
   parentName: { type: String },
   parentPhone: { type: Number },
@@ -29,28 +27,23 @@ const DetailSchema = new mongoose.Schema({
   college: { type: String },
   course: { type: String },
   source: { type: String, default: "Google" },
-  agreed: { type: Boolean, default: false }
+  agreed: { type: Boolean, default: false },
 });
-
 
 const DetailModel = mongoose.model("detail", DetailSchema);
 
-
-
-
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.frontend_Url,
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };
 app.use(cors(corsOptions));
 app.use(express.json());
 
-
 app.post("/api/details/add", async (req, res) => {
   try {
     console.log(req.body);
-    
+
     const dataToAdd = new DetailModel(req.body);
     await dataToAdd.save();
     res.status(200).send("Data Added");
@@ -59,7 +52,5 @@ app.post("/api/details/add", async (req, res) => {
     res.status(500).send("There is an error", error.message);
   }
 });
-
-
 
 app.listen(port, () => console.log(`Server started at port ${port}`));

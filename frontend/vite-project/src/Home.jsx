@@ -112,11 +112,13 @@ function handleChange(e) {
     <>
       <form onSubmit={handleSubmit}>
         <div className="form-container">
+       
           {message?.type && (
-            <div className={`message ${message.type}`}>
-              {message.messageString}
-            </div>
-          )}
+  <div className={`message-box ${message.type}`}>
+    {message.messageString}
+  </div>
+)}
+
 <div  className="section-box">
           <h3>Personal Details</h3>
           <input
@@ -125,6 +127,7 @@ function handleChange(e) {
             name="name"
             value={data.name}
             onChange={handleChange}
+            required
           />
           <input
             type="email"
@@ -132,6 +135,8 @@ function handleChange(e) {
             name="email"
             value={data.email}
             onChange={handleChange}
+            required
+
           />
           <input
             type="tel"
@@ -139,6 +144,8 @@ function handleChange(e) {
             name="phone"
             value={data.phone}
             onChange={handleChange}
+            required
+
           />
           <input
             type="date"
@@ -146,6 +153,8 @@ function handleChange(e) {
             name="dob"
             value={data.dob}
             onChange={handleChange}
+            required
+
           />
           <div>
             <label>Gender:</label>
@@ -223,6 +232,7 @@ function handleChange(e) {
             name="permanentAddress"
             value={data.permanentAddress}
             onChange={handleChange}
+            
           ></textarea>
           </div>
           </div>

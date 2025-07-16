@@ -7,7 +7,7 @@ export async function addData(req, res) {
 
     const dataToAdd = new DetailModel(req.body);
     await dataToAdd.save();
-    res.status(200).send("Data Added",dataToAdd);
+    res.status(200).json({ message: "Data Added", data: dataToAdd });
   } catch (error) {
     console.log(error);
     res.status(500).send("There is an error", error.message);

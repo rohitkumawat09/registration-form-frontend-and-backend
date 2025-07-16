@@ -1,5 +1,6 @@
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: import.meta.vite_BackendUrl,
+  baseURL: import.meta.env.VITE_BACKEND_URL,
+  withCredentials: true,
 });

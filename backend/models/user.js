@@ -8,7 +8,7 @@ const DetailSchema = new mongoose.Schema({
   phone: { type: Number, required: true },
   dob: { type: String },
   gender: { type: String },
-       friendName: { type: String, },
+  friendName: { type: String },
 
   parentName: { type: String },
   parentPhone: { type: Number },
@@ -21,9 +21,8 @@ const DetailSchema = new mongoose.Schema({
   college: { type: String },
   course: { type: String },
   source: { type: String, default: "Google" },
-  agreed: { type: Boolean, default: false }
+  agreed: { type: Boolean, default: false },
 });
 
-
 const DetailModel = mongoose.model("detail", DetailSchema);
- module.exports = DetailModel;
+export default DetailModel;

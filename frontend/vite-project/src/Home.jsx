@@ -69,7 +69,8 @@ function handleChange(e) {
     e.preventDefault();
     console.log("Form Data: ", data);
     try {
-      const response = await instance.post("/details/add", data);
+      console.log("first");
+      const response = await instance.post("/api/details/add", data);
       console.log(response);
       if (response.status === 200) {
         setMessage({

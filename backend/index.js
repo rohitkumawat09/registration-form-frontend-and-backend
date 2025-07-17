@@ -4,6 +4,8 @@ import "dotenv/config";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import userRouter from "./routes/routes.js";
+// import multer from "multer";
+// const upload = multer({ dest: 'uploads/' })
 
 const app = express();
 

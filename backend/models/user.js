@@ -1,12 +1,11 @@
 import { model } from "mongoose";
 import mongoose from "mongoose";
 import "dotenv/config";
-
 const DetailSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   phone: { type: Number, required: true },
-  dob: { type: String },
+  dob: { type: Date  },
   gender: { type: String },
   friendName: { type: String },
 
@@ -21,8 +20,14 @@ const DetailSchema = new mongoose.Schema({
   college: { type: String },
   course: { type: String },
   source: { type: String, default: "Google" },
+  
   agreed: { type: Boolean, default: false },
-});
+}
+
+,
+  {
+    timestamps: true, 
+  });
 
 const DetailModel = mongoose.model("detail", DetailSchema);
 export default DetailModel;

@@ -5,21 +5,24 @@ const formSchema = new mongoose.Schema({
     type: String,
     minlength: 4,
     maxlength: 30,
-    required: true,
+    // required: true,
   },
   email: {
     type: String,
-    required: true,
-    match: [/\S+@\S+\.\S+/, 'Please enter a valid email address'],
+    // required: true,
+    default:"",
+    // match: [/\S+@\S+\.\S+/, 'Please enter a valid email address'],
   },
   phone: {
     type: String,
-    required: true,
-    match: [/^\d{10}$/, 'Phone number must be exactly 10 digits'],
+    // required: true,
+    default:"",
+    // match: [/^\d{10}$/, 'Phone number must be exactly 10 digits'],
   },
   dob: {
     type: Date,
-    required: true,
+    // required: true,
+    default:"",
   },
   gender: {
     type: String,
@@ -28,20 +31,24 @@ const formSchema = new mongoose.Schema({
   },
   parentName: {
     type: String,
-    required: true,
+    // required: true,
+    default:"",
   },
   parentPhone: {
     type: String,
-    required: true,
-    match: [/^\d{10}$/, 'Parent phone number must be exactly 10 digits'],
+    // required: true,
+    default:"",
+    // match: [/^\d{10}$/, 'Parent phone number must be exactly 10 digits'],
   },
   localAddress: {
     type: String,
     required: true,
+    default:"",
   },
   permanentAddress: {
     type: String,
     required: true,
+    default:"",
   },
   occupation: {
     type: String,
@@ -50,29 +57,37 @@ const formSchema = new mongoose.Schema({
   },
   qualification: {
     type: String,
+    default:"",
   },
   year: {
     type: String,
+    default:"",
   },
   college: {
     type: String,
+    default:"",
   },
   designation: {
     type: String,
+    default:"",
   },
   company: {
     type: String,
+    default:"",
   },
   course: {
     type: String,
-    required: true,
+    // required: true,
+    default:"",
   },
   source: {
     type: String,
-    required: true,
+    // required: true,
+    default:"",
   },
   friendName: {
     type: String,
+    default:"",
   },
 
   aadhaarFront: {

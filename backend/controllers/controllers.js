@@ -1,43 +1,70 @@
-
-import Form from "../models/user.js"
+import Form from "../models/user.js";
 
 const createForm = async (req, res) => {
+  console.log("first");
   try {
-    const { name, email, phone, dob, gender, parentName, parentPhone, localAddress, permanentAddress, occupation, qualification, year, college, designation, company, course, source, friendName, agreed } = req.body;
+    const {
+      name,
+      email,
+      phone,
+      dob,
+      gender,
+      parentName,
+      parentPhone,
+      localAddress,
+      permanentAddress,
+      occupation,
+      qualification,
+      year,
+      college,
+      designation,
+      company,
+      course,
+      source,
+      friendName,
+      agreed,
+    } = req.body;
 
     const aadhaarFront = req.files?.aadhaarFront?.[0]?.filename || null;
     const aadhaarBack = req.files?.aadhaarBack?.[0]?.filename || null;
 
-
-    console.log("Front Aadhaar:", aadhaarFront);
-    console.log("Back Aadhaar:", aadhaarBack);
-
-
-    
-
     const newForm = new Form({
-      name, email, phone, dob, gender,
-      parentName, parentPhone,
-      localAddress, permanentAddress,
-      occupation, qualification, year, college,
-      designation, company, course,
-      source, friendName,
+      name,
+      email,
+      phone,
+      dob,
+      gender,
+      parentName,
+      parentPhone,
+      localAddress,
+      permanentAddress,
+      occupation,
+      qualification,
+      year,
+      college,
+      designation,
+      company,
+      course,
+      source,
+      friendName,
       agreed,
-      aadhaarFront,
-      aadhaarBack
+      aadhaarFront: aadhaarFront,
+      aadhaarBack: aadhaarBack,
     });
-console.log("newform",newForm);
-
-    
+    console.log("newform", newForm);
 
     const savedForm = await newForm.save();
     console.log(savedForm);
-    
-    res.status(201).json({ message: "Form submitted successfully", data: savedForm });
+
+    res
+      .status(201)
+      .json({ message: "Form submitted successfully", data: savedForm });
   } catch (error) {
     console.error("❌ Form submission error:", error);
-    res.status(500).json({ message: "Something went wrong", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Something went wrong", error: error.message });
   }
 };
 
-export default createForm;
+export default createForm;

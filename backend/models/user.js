@@ -1,33 +1,92 @@
-import { model } from "mongoose";
 import mongoose from "mongoose";
-import "dotenv/config";
-const DetailSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  phone: { type: Number, required: true },
-  dob: { type: Date  },
-  gender: { type: String },
-  friendName: { type: String },
 
-  parentName: { type: String },
-  parentPhone: { type: Number },
-  localAddress: { type: String },
-  permanentAddress: { type: String },
-  sameAddress: { type: Boolean, default: false },
-  status: { type: String, default: "Student" },
-  qualification: { type: String },
-  year: { type: String },
-  college: { type: String },
-  course: { type: String },
-  source: { type: String, default: "Google" },
-  
-  agreed: { type: Boolean, default: false },
-}
+const formSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    minlength: 4,
+    maxlength: 30,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    match: [/\S+@\S+\.\S+/, 'Please enter a valid email address'],
+  },
+  phone: {
+    type: String,
+    required: true,
+    match: [/^\d{10}$/, 'Phone number must be exactly 10 digits'],
+  },
+  dob: {
+    type: Date,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+    enum: ['Male', 'Female', 'Other'],
+  },
+  parentName: {
+    type: String,
+    required: true,
+  },
+  parentPhone: {
+    type: String,
+    required: true,
+    match: [/^\d{10}$/, 'Parent phone number must be exactly 10 digits'],
+  },
+  localAddress: {
+    type: String,
+    required: true,
+  },
+  permanentAddress: {
+    type: String,
+    required: true,
+  },
+  occupation: {
+    type: String,
+    required: true,
+    enum: ['Student', 'Working Professional'],
+  },
+  qualification: {
+    type: String,
+  },
+  year: {
+    type: String,
+  },
+  college: {
+    type: String,
+  },
+  designation: {
+    type: String,
+  },
+  company: {
+    type: String,
+  },
+  course: {
+    type: String,
+    required: true,
+  },
+  source: {
+    type: String,
+    required: true,
+  },
+  friendName: {
+    type: String,
+  },
 
-,
-  {
-    timestamps: true, 
-  });
+  aadhaarFront: {
+    type: String, 
+    required: true,
+  },
+  aadhaarBack: {
+    type: String, 
+    required: true,
+  },
+  agreed: {
+    type: Boolean,
+    required: true,
+  }
+}, {timestamps: true} );
 
-const DetailModel = mongoose.model("detail", DetailSchema);
-export default DetailModel;
+export default mongoose.model("Form", formSchema);

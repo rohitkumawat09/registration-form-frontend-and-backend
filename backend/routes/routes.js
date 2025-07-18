@@ -1,8 +1,11 @@
+
 import express from "express";
-import { addData } from "../controllers/controllers.js";
-import logMethod from "../middleware/middleware.js";
+import uploadMiddleware from "../middleware/middleware.js";
+import createForm from "../controllers/controllers.js";
+
+
 const router = express.Router();
 
-router.post("/add",logMethod, addData);
+router.post("/add", uploadMiddleware, createForm);
 
 export default router;

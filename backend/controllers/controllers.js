@@ -1,16 +1,43 @@
-import DetailModel from "../models/user.js";
 
-export async function addData(req, res ,next ) {
-    console.log("first");
+import Form from "../models/user.js"
+
+const createForm = async (req, res) => {
   try {
-    console.log(req.body);
+    const { name, email, phone, dob, gender, parentName, parentPhone, localAddress, permanentAddress, occupation, qualification, year, college, designation, company, course, source, friendName, agreed } = req.body;
 
-    const dataToAdd = new DetailModel(req.body);
-    await dataToAdd.save();
-    res.status(200).json({ message: "Data Added", dataToAdd });
+    const aadhaarFront = req.files?.aadhaarFront?.[0]?.filename || null;
+    const aadhaarBack = req.files?.aadhaarBack?.[0]?.filename || null;
+
+
+    console.log("Front Aadhaar:", aadhaarFront);
+    console.log("Back Aadhaar:", aadhaarBack);
+
+
     
+
+    const newForm = new Form({
+      name, email, phone, dob, gender,
+      parentName, parentPhone,
+      localAddress, permanentAddress,
+      occupation, qualification, year, college,
+      designation, company, course,
+      source, friendName,
+      agreed,
+      aadhaarFront,
+      aadhaarBack
+    });
+console.log("newform",newForm);
+
+    
+
+    const savedForm = await newForm.save();
+    console.log(savedForm);
+    
+    res.status(201).json({ message: "Form submitted successfully", data: savedForm });
   } catch (error) {
-    console.log(error);
-    res.status(500).send("There is an error", error.message);
+    console.error("❌ Form submission error:", error);
+    res.status(500).json({ message: "Something went wrong", error: error.message });
   }
-}
+};
+
+export default createForm;
